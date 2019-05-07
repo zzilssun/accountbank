@@ -1,23 +1,18 @@
 package kr.iroriasoft.accountbank.rooms.models
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import kr.iroriasoft.accountbank.rooms.models.bases.BaseModel
 
 @Entity(
-        tableName = "categories",
+        tableName = "queries",
         indices = [(Index(value = arrayOf("_id", "name"), unique = true))]
 )
-class CategoryModel(
+class QueryModel(
         var name: String,
-        @field:ColumnInfo(name = "icon_path") var iconPath: String = "",
-        var pos: Int,
-        var income: Int = 1,
-        var expense: Int = 1,
-        var transfer: Int = 1,
-        @field:ColumnInfo(name = "show_in_graph") var showInGraph: Int = 1
+        var xml: String = "",
+        var pos: Int
 ) : BaseModel() {
 
     @PrimaryKey(autoGenerate = true)

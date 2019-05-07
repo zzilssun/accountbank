@@ -1,17 +1,18 @@
 package kr.iroriasoft.accountbank.rooms.models
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import kr.iroriasoft.accountbank.rooms.models.bases.BaseModel
 
 @Entity(
-        tableName = "accounts",
-        indices = [(Index(value = arrayOf("_id", "name"), unique = true))]
+        tableName = "subcategories",
+        indices = [(Index(value = arrayOf("_id"), unique = true))]
 )
-class AccountModel(
+class SubCategoryModel(
         var name: String,
-        var balance: Int = 0,
+        @field:ColumnInfo(name = "parent_id") var parentId: Int,
         var pos: Int
 ) : BaseModel() {
 
